@@ -4,15 +4,15 @@
 
 package:
   name: {{ name }}
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://cpan.metacpan.org/authors/id/S/SA/SANKO/Readonly-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  skip: true   # [win]
-  number: 0
+  noarch: generic
+  number: 1
   run_exports:
     weak:
       - {{ name }} ={{ version }}
@@ -40,9 +40,7 @@ about:
   home: https://github.com/sanko/readonly
   # Metadata is wrong, the packaged LICENSE says it is the Perl license.
   license: GPL-1.0-or-later OR Artistic-1.0-Perl
-  license_file:
-    - {{ environ["PREFIX"] }}/man/man1/perlartistic.1
-    - {{ environ["PREFIX"] }}/man/man1/perlgpl.1
+  license_file: LICENSE
   summary: 'Facility for creating read-only scalars, arrays, hashes'
 
 extra:
